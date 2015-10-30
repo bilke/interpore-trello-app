@@ -19,17 +19,23 @@ class Meta
   #  end
   #end
 
+  def imprint
+    if card = find_card("Imprint")
+      md_to_html(card.desc)
+    end
+  end
+
   def published_at
     cards.first.name
   end
 
-  #private
-#
-  #def find_card name
-  #  cards.find { |card| card.name == name }
-  #end
-#
-  #def md_to_html text
-  #  Maruku.new(text).to_html
-  #end
+  private
+
+  def find_card name
+    cards.find { |card| card.name == name }
+  end
+
+  def md_to_html text
+    Maruku.new(text).to_html
+  end
 end
