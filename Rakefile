@@ -6,5 +6,7 @@ Bundler.setup
 
 desc "Import from Trello board"
 task :import do
-  Importer.new(File.dirname(__FILE__)).import ENV["ISSUE"]
+  importer = Importer.new(File.dirname(__FILE__), ENV["ISSUE"])
+  importer.import
+  importer.write
 end

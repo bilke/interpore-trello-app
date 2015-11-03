@@ -15,8 +15,9 @@ end
 
 class Importer
   attr_reader :root_dir
-  def initialize root_dir
+  def initialize root_dir, issue_number
     @root_dir = root_dir
+    @issue_number = issue_number
   end
 
   def issues_dir
@@ -32,12 +33,16 @@ class Importer
     .map(&:to_i).sort.last.succ.to_s
   end
 
-  def import issue_number
+  attr_reader :issue_number
+  attr_reader :meta
+  attr_reader :lists
+
+  def import
     start_time = Time.now
     proc = Proc.new do
 
-      if issue_number.nil?
-        issue_number = next_issue_number
+      if @issue_number.nil?
+        @issue_number = next_issue_number
 
         puts "No issue number specified. Guessing you want ##{issue_number}..."
       end
@@ -49,22 +54,27 @@ class Importer
         abort "Unable to find board named: #{board_name}"
       end
 
-      lists = board.lists
-      meta = Meta.new lists.shift
-
-      issue_dir = File.join issues_dir, issue_number
-      FileUtils.mkdir_p issue_dir
-      issue_file = File.join issue_dir, "index.html"
-
-      output = File.open issue_file, "w"
-      output.puts Tilt.new("templates/index.html.slim").render(self,
-        issue_number: issue_number,
-        meta: meta,
-        lists: lists)
+      @lists = board.lists
+      @meta = Meta.new lists.shift
     end
     proc.call
 
     total_time = (Time.now - start_time).round 2
-    puts "Generated issue ##{issue_number} in #{total_time} seconds."
+    puts "Downloaded issue ##{issue_number} from Trello in #{total_time} seconds."
+  end
+
+  def write
+    start_time = Time.now
+    issue_dir = File.join issues_dir, issue_number
+    FileUtils.mkdir_p issue_dir
+    issue_file = File.join issue_dir, "newsletter.html"
+
+    output = File.open issue_file, "w"
+    output.puts Tilt.new("templates/newsletter.slim").render(self,
+                                                             issue_number: @issue_number,
+                                                             meta: @meta,
+                                                             lists: @lists)
+    total_time = (Time.now - start_time).round 2
+    puts "Wrote issue ##{issue_number} to file #{issue_file} in #{total_time} seconds."
   end
 end
