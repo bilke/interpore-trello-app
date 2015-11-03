@@ -9,8 +9,13 @@ require_relative 'post'
 config_hash = YAML::load_file("config/secret.yml")["development"]
 
 Trello.configure do |config|
-  config.developer_public_key = config_hash["trello_developer_public_key"]
-  config.member_token = config_hash["trello_member_token"]
+  if config_hash.nil?
+    config.developer_public_key = ENV["trello_developer_public_key"]
+    config.member_token = ENV["trello_member_token"]
+  else
+    config.developer_public_key = config_hash["trello_developer_public_key"]
+    config.member_token = config_hash["trello_member_token"]
+  end
 end
 
 class Importer

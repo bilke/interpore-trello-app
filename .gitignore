@@ -1,4 +1,5 @@
 /.idea
 /.bundle
 /config/secret.yml
+/.env
 /source
