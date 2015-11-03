@@ -6,7 +6,11 @@ require 'slim'
 require_relative 'meta'
 require_relative 'post'
 
-config_hash = YAML::load_file("config/secret.yml")["development"]
+if File.exist?("config/secret.yml")
+  config_hash = YAML::load_file("config/secret.yml")["development"]
+else
+  config_hash = nil
+end
 
 Trello.configure do |config|
   if config_hash.nil?
