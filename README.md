@@ -10,6 +10,9 @@ Shamelessly stolen from https://changelog.com/trello-as-a-cms
 
 ## Usage
 
+Go to https://interpore.herokuapp.com and supply an issue number, e.g.
+`2015-19`, and press `Generate`.
+
 ### Rake
 
 ```bash
