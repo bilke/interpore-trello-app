@@ -3,28 +3,41 @@ html
   head
     title Interpore Newsletter ##{issue_number}
 
+    link href="https://www.interpore.org/component/acymailing/archive/view/mailid-196?key=pJH3CwPX&amp;tmpl=component" rel="canonical"
+    link href="/templates/yoo_master2/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"
+    link rel="stylesheet" href="https://www.interpore.org/media/com_acymailing/css/component_default.css?v=1445596046" type="text/css"
+    link rel="stylesheet" href="https://www.interpore.org/plugins/system/rokbox/assets/styles/rokbox.css" type="text/css"
+    link rel="stylesheet" href="https://www.interpore.org/media/jui/css/bootstrap.min.css" type="text/css"
+    link rel="stylesheet" href="https://www.interpore.org/media/jui/css/bootstrap-extended.css" type="text/css"
+    link rel="stylesheet" href="https://www.interpore.org/media/jui/css/bootstrap-responsive.css" type="text/css"
+    link rel="stylesheet" href="newsletter.css" type="text/css"
+
   body
-    - unless lists.empty?
-      - lists.each do |list|
-        - next if list.cards.empty?
-        / Insert section banner image
-        - if list.name == "News"
-          img width="582" alt="interpore news" src="http://www.interpore.org/images/newsletter/title/interpore_news.jpg" class="title_picture" style="padding:0;margin:0;width:582px;border:none;"
-        - if list.name == "Awards"
-          img src="http://www.interpore.org/images/newsletter/title/interpore_awards.jpg" alt="interpore awards" height="88" style="padding:0;margin:0;border:0px;text-decoration:none;"
-        - if list.name == "Community"
-          img src="http://www.interpore.org/images/newsletter/title/community_news.jpg" height="88" alt="community news" style="padding:0;margin:0;border:0px;text-decoration:none;"
-        - if list.name == "Positions"
-          img src="http://www.interpore.org/images/newsletter/title/research_positions.jpg" height="88" alt="research positions" style="padding:0;margin:0;border:0px;text-decoration:none;"
-        / Entry content
-        - list.cards.each_with_index do |card, index|
-          - post = Post.new card
-          - next if post.draft?
-          h1 #{post.title}
-          div== post.body
-          / Add schweif image after all entries except last in list
-          - if index != list.cards.size-1
-            img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;margin-bottom:30px;" width="560" height="92"
-    div style="text-align: center;"
-      h4 Imprint
-      div== meta.imprint
+    div class="container"
+      - unless lists.empty?
+        - lists.each do |list|
+          - next if list.cards.empty?
+          / Insert section banner image
+          - if list.name == "News"
+            img width="582" alt="interpore news" src="http://www.interpore.org/images/newsletter/title/interpore_news.jpg" class="title_picture" style="padding:0;margin:0;width:582px;border:none;"
+            div class="row"
+              div class="newsletter-date pull-right" Issue ##{issue_number[5..-1]}, #{meta.publish_date_string}
+          - if list.name == "Awards"
+            img src="http://www.interpore.org/images/newsletter/title/interpore_awards.jpg" alt="interpore awards" height="88" style="padding:0;margin:0;border:0px;text-decoration:none;"
+          - if list.name == "Community"
+            img src="http://www.interpore.org/images/newsletter/title/community_news.jpg" height="88" alt="community news" style="padding:0;margin:0;border:0px;text-decoration:none;"
+          - if list.name == "Positions"
+            img src="http://www.interpore.org/images/newsletter/title/research_positions.jpg" height="88" alt="research positions" style="padding:0;margin:0;border:0px;text-decoration:none;"
+          / Entry content
+          - list.cards.each_with_index do |card, index|
+            - post = Post.new card
+            - next if post.draft?
+            div class="article"
+              h1 #{post.title}
+              div== post.body
+            / Add schweif image after all entries except last in list
+            - if index != list.cards.size-1
+              img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;margin-bottom:30px;" width="560" height="92"
+      div style="text-align: center;"
+        h4 Imprint
+        div== meta.imprint

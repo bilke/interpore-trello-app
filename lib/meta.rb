@@ -29,6 +29,11 @@ class Meta
     cards.first.name
   end
 
+  def publish_date_string
+    date = Date.parse(published_at)
+    date.strftime("#{date.day.ordinalize} %B %Y")
+  end
+
   private
 
   def find_card name

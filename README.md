@@ -39,3 +39,7 @@ For local environment setup use `.env`-file:
 trello_developer_public_key=[REDACTED]
 trello_member_token=[REDACTED]
 ```
+
+## Docs
+
+- [Boostrap 2.3.2](http://getbootstrap.com/2.3.2/)
