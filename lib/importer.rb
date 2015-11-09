@@ -57,7 +57,7 @@ class Importer
       end
 
       board_name = "Issue ##{issue_number}"
-      board = Trello::Board.all.find { |b| b.name == board_name }
+      board = Trello::Board.all.find { |b| b.name == board_name && b.closed == false }
 
       if board.nil?
         abort "Unable to find board named: #{board_name}"

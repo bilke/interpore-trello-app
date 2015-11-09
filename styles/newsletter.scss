@@ -16,6 +16,7 @@ body {
 
 .article {
   margin: 0px $article-margin $article-margin $article-margin;
+  p { text-align: justify; }
 }
 
 .newsletter-date {
@@ -39,6 +40,8 @@ body {
   }
 }
 
+.imprint { text-align: center; }
+
 h1, h2, h3, h4 {
   font-weight: bold;
   color: $headline-color;
@@ -46,6 +49,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: $text-font-size + 4px;
+  line-height: $text-font-size + 12px;
   margin-top: 0;
 }
 
@@ -58,7 +62,6 @@ h3 {
 }
 
 p {
-  text-align: justify;
   line-height: normal;
   padding: 0;
   margin: 0;

@@ -12,6 +12,10 @@ body {
   margin: 0px 20px 20px 20px;
 }
 
+.article p {
+  text-align: justify;
+}
+
 .newsletter-date {
   margin-right: 20px;
   font-weight: bold;
@@ -37,6 +41,10 @@ body {
   margin-bottom: 0.25em;
 }
 
+.imprint {
+  text-align: center;
+}
+
 h1, h2, h3, h4 {
   font-weight: bold;
   color: #365F91;
@@ -44,6 +52,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 16px;
+  line-height: 24px;
   margin-top: 0;
 }
 
@@ -56,7 +65,6 @@ h3 {
 }
 
 p {
-  text-align: justify;
   line-height: normal;
   padding: 0;
   margin: 0;
