@@ -1,0 +1,66 @@
+$article-margin: 20px;
+$container-width: 582px;
+$text-font-size: 12px;
+$headline-color: #365F91;
+$background-color: #dcf4ff;
+
+body {
+  background-color: $background-color;
+}
+
+.container {
+  width: $container-width;
+  font-size: $text-font-size;
+  background-color: #ffffff;
+}
+
+.article {
+  margin: 0px $article-margin $article-margin $article-margin;
+}
+
+.newsletter-date {
+  margin-right: $article-margin;
+  font-weight: bold;
+  font-size: $text-font-size - 1px;
+}
+
+.newsletter-toc {
+  float: right;
+  width: 200px;
+  margin: 14px $article-margin $article-margin / 2 $article-margin / 2;
+  border: 1px solid $headline-color;
+
+  h3 { margin: 0.25em; padding: 0; line-height: normal; }
+
+  li {
+    font-size: $text-font-size - 1px;
+    line-height: normal;
+    margin-bottom: 0.25em;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  color: $headline-color;
+}
+
+h1 {
+  font-size: $text-font-size + 4px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: $text-font-size + 2px;
+}
+
+h3 {
+  font-size: $text-font-size;
+}
+
+p {
+  text-align: justify;
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 8px;
+}

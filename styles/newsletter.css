@@ -1,45 +1,64 @@
 body {
-    background-color: #dcf4ff;
+  background-color: #dcf4ff;
 }
 
 .container {
-    width:582px;
-    font-size: 12px;
-    background-color: #ffffff;
+  width: 582px;
+  font-size: 12px;
+  background-color: #ffffff;
 }
 
 .article {
-    margin: 0px 20px 20px 20px;
+  margin: 0px 20px 20px 20px;
 }
 
 .newsletter-date {
-    margin-right: 20px;
-    font-weight: bold;
-    font-size: 11px;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.newsletter-toc {
+  float: right;
+  width: 200px;
+  margin: 14px 20px 10px 10px;
+  border: 1px solid #365F91;
+}
+
+.newsletter-toc h3 {
+  margin: 0.25em;
+  padding: 0;
+  line-height: normal;
+}
+
+.newsletter-toc li {
+  font-size: 11px;
+  line-height: normal;
+  margin-bottom: 0.25em;
 }
 
 h1, h2, h3, h4 {
-    font-weight: bold;
-    color: #365F91;
+  font-weight: bold;
+  color: #365F91;
 }
 
 h1 {
-    font-size: 16px;
-    margin-top: 0;
+  font-size: 16px;
+  margin-top: 0;
 }
 
 h2 {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 h3 {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 p {
-    text-align: justify;
-    line-height: normal;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 8px;
+  text-align: justify;
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 8px;
 }

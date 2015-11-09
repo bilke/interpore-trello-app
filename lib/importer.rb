@@ -63,8 +63,22 @@ class Importer
         abort "Unable to find board named: #{board_name}"
       end
 
+      if not board.has_lists?
+        p board
+        abort "Board #{board_name} has no lists"
+      end
+
       @lists = board.lists
       @meta = Meta.new lists.shift
+
+      @tocs = Array.new
+
+      for list in @lists
+        for card in list.cards
+          toc = card.labels.find { |label| label.name == "TOC" }
+          @tocs.push(card) if toc
+        end
+      end
     end
     proc.call
 
@@ -82,7 +96,8 @@ class Importer
     output.puts Tilt.new("templates/newsletter.slim").render(self,
                                                              issue_number: @issue_number,
                                                              meta: @meta,
-                                                             lists: @lists)
+                                                             lists: @lists,
+                                                             tocs: @tocs)
     total_time = (Time.now - start_time).round 2
     puts "Wrote issue ##{issue_number} to file #{issue_file} in #{total_time} seconds."
   end
