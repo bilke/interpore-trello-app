@@ -10,7 +10,7 @@ html
     link rel="stylesheet" href="https://www.interpore.org/plugins/system/rokbox/assets/styles/rokbox.css" type="text/css"
     link rel="stylesheet" href="https://www.interpore.org/media/jui/css/bootstrap.min.css" type="text/css"
     link rel="stylesheet" href="https://www.interpore.org/media/jui/css/bootstrap-extended.css" type="text/css"
-    link rel="stylesheet" href="https://www.interpore.org/media/jui/css/bootstrap-responsive.css" type="text/css"
+    /link rel="stylesheet" href="https://www.interpore.org/media/jui/css/bootstrap-responsive.css" type="text/css"
     link rel="stylesheet" href="newsletter.css" type="text/css"
 
   body
@@ -48,5 +48,15 @@ html
             - if index != list.cards.size-1
               img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;margin-bottom:30px;" width="560" height="92"
       div class="imprint"
-        h4 id="imprint" Imprint
+        h4 Imprint
         div== meta.imprint
+        div class="row-fluid"
+          div class="span6"
+            a href="https://www.facebook.com/InterPore-International-Society-for-Porous-Media-111002615657865/"
+              img src="http://www.interpore.org/images/newsletter/Issue_85/FindUsonFacebook144.png" width="80px" height="15"
+          div class="span6"
+            a href="https://www.linkedin.com/company/interpore-non-profit-scientific-organization"
+              img src="http://www.interpore.org/images/newsletter/Issue_85/Logo-2C-28px-TM.png" width="65px" height="15px"
+        h4 Editors
+        div== meta.editors
+      img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;" width="560" height="92"

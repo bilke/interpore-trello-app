@@ -25,6 +25,12 @@ class Meta
     end
   end
 
+  def editors
+    if card = find_card("Editors")
+      md_to_html(card.desc)
+    end
+  end
+
   def published_at
     cards.first.name
   end

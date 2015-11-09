@@ -40,7 +40,10 @@ body {
   }
 }
 
-.imprint { text-align: center; }
+.imprint {
+  text-align: center;
+  ul { list-style: none; }
+}
 
 h1, h2, h3, h4 {
   font-weight: bold;

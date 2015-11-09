@@ -45,6 +45,10 @@ body {
   text-align: center;
 }
 
+.imprint ul {
+  list-style: none;
+}
+
 h1, h2, h3, h4 {
   font-weight: bold;
   color: #365F91;
