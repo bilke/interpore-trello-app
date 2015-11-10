@@ -1,11 +1,13 @@
 body {
   background-color: #dcf4ff;
+  font-family: Arial, Verdana;
 }
 
 .container {
   width: 582px;
   font-size: 12px;
   background-color: #ffffff;
+  padding: 0;
 }
 
 .article {

@@ -6,12 +6,14 @@ $background-color: #dcf4ff;
 
 body {
   background-color: $background-color;
+  font-family: Arial, Verdana;
 }
 
 .container {
   width: $container-width;
   font-size: $text-font-size;
   background-color: #ffffff;
+  padding: 0;
 }
 
 .article {
