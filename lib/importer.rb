@@ -1,26 +1,10 @@
-require 'trello'
-require "yaml"
 require "pathname"
 require "fileutils"
 require 'slim'
+require 'slim/include'
+require_relative 'init'
 require_relative 'meta'
 require_relative 'post'
-
-if File.exist?("config/secret.yml")
-  config_hash = YAML::load_file("config/secret.yml")["development"]
-else
-  config_hash = nil
-end
-
-Trello.configure do |config|
-  if config_hash.nil?
-    config.developer_public_key = ENV["trello_developer_public_key"]
-    config.member_token = ENV["trello_member_token"]
-  else
-    config.developer_public_key = config_hash["trello_developer_public_key"]
-    config.member_token = config_hash["trello_member_token"]
-  end
-end
 
 class Importer
   attr_reader :root_dir
@@ -62,6 +46,8 @@ class Importer
       if board.nil?
         abort "Unable to find board named: #{board_name}"
       end
+
+      # p board.find_card("56409d79540c507245cbe9ae")
 
       if not board.has_lists?
         p board

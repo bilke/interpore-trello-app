@@ -17,3 +17,11 @@ get '/generate' do
   importer.import
   slim :newsletter, scope: importer
 end
+
+get '/generate-card' do
+  card = params['card-id']
+  # TODO
+  # importer = Importer.new(File.dirname(__FILE__), issue)
+  # importer.import
+  # slim :newsletter, scope: importer
+end
