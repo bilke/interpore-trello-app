@@ -74,6 +74,7 @@ p {
 }
 
 ul {
+  padding-left: 26px;
   list-style-image: url('http://www.interpore.org/images/newsletter/Issue_17/bulletpoint.jpg');
 }
 
@@ -81,4 +82,5 @@ ul {
   text-align: center;
   line-height: normal;
   background-color: $background-color;
+  p { margin-bottom: 0; }
 }
