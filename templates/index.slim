@@ -5,12 +5,25 @@ html
 
   body
     h1 Interpore Newsletter Generator
+    h2 Preview
     form action="/generate"
       span Issue:
       input type="text" name="issue" value="yyyy-n"
-      input type="submit" value="Generate"
+      input type="submit" value="Preview"
 
     form action="/generate-card"
       span Card:
       input type="text" name="card-id" value="id"
-      input type="submit" value="Generate"
+      input type="submit" value="Preview"
+
+    h2 Generate HTML
+
+    form action="/generate-html"
+      span Issue:
+      input type="text" name="issue" value="yyyy-n"
+      input type="submit" value="Generate HTML"
+
+    form action="/generate-card-html"
+      span Card:
+      input type="text" name="card-id" value="id"
+      input type="submit" value="Generate HTML"

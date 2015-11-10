@@ -20,11 +20,27 @@ get '/generate' do
   slim :newsletter, scope: importer
 end
 
+get '/generate-html' do
+  issue = params['issue']
+  importer = Importer.new(File.dirname(__FILE__), issue)
+  importer.import
+  slim :newsletter_partial, scope: importer, :content_type => :txt
+end
+
 get '/generate-card' do
   card_id = params['card-id']
   card = Trello::Card.find(card_id)
   if card
     post = Post.new(card)
     slim :entry, locals: { :post => post }
+  end
+end
+
+get '/generate-card-html' do
+  card_id = params['card-id']
+  card = Trello::Card.find(card_id)
+  if card
+    post = Post.new(card)
+    slim :entry, locals: { :post => post }, :content_type => :txt
   end
 end

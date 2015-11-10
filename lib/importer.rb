@@ -29,6 +29,7 @@ class Importer
   attr_reader :issue_number
   attr_reader :meta
   attr_reader :lists
+  attr_reader :tocs
 
   def import
     start_time = Time.now

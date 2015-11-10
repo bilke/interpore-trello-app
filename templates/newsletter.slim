@@ -15,6 +15,8 @@ html
 
   body
     div class="container"
+      div id="readonline" If you can't see this message, {readonline}click here{/readonline}<br /> All past FlashNews and Newsletters are online here:
+        a href="http://www.interpore.org/news/e-newsletters" E-Newsletter
       - unless lists.empty?
         / Banner and issue data
         img id="news" width="582" alt="interpore news" src="http://www.interpore.org/images/newsletter/title/interpore_news.jpg" class="title_picture" style="padding:0;margin:0;width:582px;border:none;"
@@ -62,3 +64,6 @@ html
         h4 Editors
         div== meta.editors
       img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;" width="560" height="92"
+
+      div id="unsubscribe"
+        p In order to unsubscribe from the InterPore Newsletter and Flashnews click here:{unsubscribe}unsubscribe{/unsubscribe}

@@ -78,3 +78,9 @@ p {
 ul {
   list-style-image: url("http://www.interpore.org/images/newsletter/Issue_17/bulletpoint.jpg");
 }
+
+#readonline, #unsubscribe {
+  text-align: center;
+  line-height: normal;
+  background-color: #dcf4ff;
+}
