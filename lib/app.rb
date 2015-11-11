@@ -8,6 +8,7 @@ require_relative 'importer'
 require_relative 'post'
 
 set :views, settings.root + '/../templates'
+set :public_folder, settings.root + '/../styles'
 
 get '/' do
   slim :index
