@@ -1641,6 +1641,14 @@ body {
 .container {
   width: 582px;
   font-size: 12px;
+  padding: 0;
+}
+
+.row {
+  width: 582px;
+}
+
+.col-xs-12 {
   background-color: #ffffff;
   padding: 0;
 }

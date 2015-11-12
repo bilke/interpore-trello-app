@@ -12,6 +12,14 @@ body {
 .container {
   width: $container-width;
   font-size: $text-font-size;
+  padding: 0;
+}
+
+.row {
+  width: $container-width;
+}
+
+.col-xs-12 {
   background-color: #ffffff;
   padding: 0;
 }

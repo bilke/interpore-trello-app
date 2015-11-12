@@ -1,52 +1,57 @@
 div class="container"
-  div id="readonline" If you can't see this message, {readonline}click here{/readonline}<br /> All past FlashNews and Newsletters are online here: <a href="http://www.interpore.org/news/e-newsletters">E-Newsletter</a>
-  - unless lists.empty?
-    / Banner and issue data
-    img id="news" width="582" alt="interpore news" src="http://www.interpore.org/images/newsletter/title/interpore_news.jpg" class="title_picture" style="padding:0;margin:0;width:582px;border:none;"
-    div class="row"
+  div class="row"
+    div class="col-xs-12" style="background-color: #dcf4ff"
+      div id="readonline" If you can't see this message, {readonline}click here{/readonline}<br /> All past FlashNews and Newsletters are online here: <a href="http://www.interpore.org/news/e-newsletters">E-Newsletter</a>
+      - unless lists.empty?
+        / Banner and issue data
+        img id="news" width="582" alt="interpore news" src="http://www.interpore.org/images/newsletter/title/interpore_news.jpg" class="title_picture" style="padding:0;margin:0;width:582px;border:none;"
+  div class="row"
+    div class="col-xs-12"
       div class="newsletter-date pull-right" Issue ##{issue_number[5..-1]}, #{meta.publish_date_string}
 
-    / Table of contents
-    div class="newsletter-toc"
-      h3 Content
-      ul
-        - tocs.each do |toc|
+  div class="row"
+    div class="col-xs-12"
+      / Table of contents
+      div class="newsletter-toc"
+        h3 Content
+        ul
+          - tocs.each do |toc|
+            li
+              a href="##{toc.name.downcase.gsub(/[^a-z0-9\s]/i, '').tr(' ', '_')}"== toc.name
           li
-            a href="##{toc.name.downcase.gsub(/[^a-z0-9\s]/i, '').tr(' ', '_')}"== toc.name
-        li
-          a href="#imprint" Imprint
+            a href="#imprint" Imprint
 
-    / Iterate lists
-    - lists.each do |list|
-      - next if list.cards.empty?
-      / Insert section banner image
-      - if list.name == "Awards"
-        img id="awards" src="http://www.interpore.org/images/newsletter/title/interpore_awards.jpg" alt="interpore awards" height="88" style="padding:0;margin:0;border:0px;text-decoration:none;"
-      - if list.name == "Community"
-        img id="community_news" src="http://www.interpore.org/images/newsletter/title/community_news.jpg" height="88" alt="community news" style="padding:0;margin:0;border:0px;text-decoration:none;"
-      - if list.name == "Positions"
-        img id="positions" src="http://www.interpore.org/images/newsletter/title/research_positions.jpg" height="88" alt="research positions" style="padding:0;margin:0;border:0px;text-decoration:none;"
+      / Iterate lists
+      - lists.each do |list|
+        - next if list.cards.empty?
+        / Insert section banner image
+        - if list.name == "Awards"
+          img id="awards" src="http://www.interpore.org/images/newsletter/title/interpore_awards.jpg" alt="interpore awards" height="88" style="padding:0;margin:0;border:0px;text-decoration:none;"
+        - if list.name == "Community"
+          img id="community_news" src="http://www.interpore.org/images/newsletter/title/community_news.jpg" height="88" alt="community news" style="padding:0;margin:0;border:0px;text-decoration:none;"
+        - if list.name == "Positions"
+          img id="positions" src="http://www.interpore.org/images/newsletter/title/research_positions.jpg" height="88" alt="research positions" style="padding:0;margin:0;border:0px;text-decoration:none;"
 
-      / Iterate cards
-      - list.cards.each_with_index do |card, index|
-        - post = Post.new card
-        - next if post.draft?
-        include entry
-        / Add schweif image after all entries except last in list
-        - if index != list.cards.size-1
-          img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;margin-bottom:30px;" width="560" height="92"
+        / Iterate cards
+        - list.cards.each_with_index do |card, index|
+          - post = Post.new card
+          - next if post.draft?
+          include entry
+          / Add schweif image after all entries except last in list
+          - if index != list.cards.size-1
+            img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;margin-bottom:30px;" width="560" height="92"
 
-    / Footer
-    div class="imprint"
-      h4 Imprint
-      div== meta.imprint
-      div class="row-fluid"
-        div class="span12"
-          a href="https://www.linkedin.com/company/interpore-non-profit-scientific-organization"
-            img src="http://www.interpore.org/images/newsletter/Issue_85/Logo-2C-28px-TM.png" width="65" height="15" alt="LinkedIn Logo"
-      h4 Editors
-      div== meta.editors
-    img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;" width="560" height="92"
+      / Footer
+      div class="imprint"
+        h4 Imprint
+        div== meta.imprint
+        div class="row-fluid"
+          div class="span12"
+            a href="https://www.linkedin.com/company/interpore-non-profit-scientific-organization"
+              img src="http://www.interpore.org/images/newsletter/Issue_85/Logo-2C-28px-TM.png" width="65" height="15" alt="LinkedIn Logo"
+        h4 Editors
+        div== meta.editors
+      img src="http://www.interpore.org/images/newsletter/title/schweif.jpg" alt="schweif" style="padding:0;margin:0;" width="560" height="92"
 
-    div id="unsubscribe"
-      p In order to unsubscribe from the InterPore Newsletter and Flashnews click here:{unsubscribe}unsubscribe{/unsubscribe}
+      div id="unsubscribe"
+        p In order to unsubscribe from the InterPore Newsletter and Flashnews click here:{unsubscribe}unsubscribe{/unsubscribe}
