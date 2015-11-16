@@ -45,6 +45,10 @@ class Post
   end
 
   def md_to_html text
-    Maruku.new(text).to_html
+    if text
+      Maruku.new(text).to_html
+    else
+      puts "No text given in card #{card.name}"
+    end
   end
 end

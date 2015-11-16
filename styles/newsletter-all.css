@@ -1661,6 +1661,12 @@ body {
   text-align: justify;
 }
 
+.article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .newsletter-date {
   margin-right: 20px;
   font-weight: bold;
