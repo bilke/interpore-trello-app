@@ -6,19 +6,6 @@ class Meta
     @cards = list.cards
   end
 
-  #def editors_note
-  #  if card = find_card("editors_note")
-  #    # must not contain p tags
-  #    md_to_html(card.desc).gsub("<p>", "").gsub("</p>", "")
-  #  end
-  #end
-
-  #def preview_text
-  #  if card = find_card("preview_text")
-  #    card.desc
-  #  end
-  #end
-
   def imprint
     if card = find_card("Imprint")
       md_to_html(card.desc)
@@ -47,6 +34,6 @@ class Meta
   end
 
   def md_to_html text
-    Maruku.new(text).to_html
+    Maruku.new("\n" + text).to_html
   end
 end

@@ -8,13 +8,11 @@ class Post
 
   def body
     @body ||= begin
-      if attached_link
-        description = card.desc || ""
+      if card.desc
+        Maruku.new("\n" + card.desc).to_html
       else
-        description = (card.desc.lines[2..-1] || []).join
+        puts "No text given in card #{card.name}"
       end
-
-      md_to_html description
     end
   end
 
@@ -44,11 +42,4 @@ class Post
     @attached_link ||= card.attachments.first
   end
 
-  def md_to_html text
-    if text
-      Maruku.new(text).to_html
-    else
-      puts "No text given in card #{card.name}"
-    end
-  end
 end
