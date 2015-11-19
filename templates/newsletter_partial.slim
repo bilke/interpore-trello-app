@@ -19,7 +19,7 @@ div class="container"
             - next if list.cards.empty?
             - if list.name != "News"
               li
-                a href="##{list.name.downcase}"== list.name
+                a href="##{list.name.downcase.gsub(/[^a-z0-9\s]/i, '').tr(' ', '_')}"== list.name
             - list.cards.each do |card|
               - if card.labels.find { |label| label.name == "TOC" }
                 li
@@ -31,12 +31,12 @@ div class="container"
       - lists.each do |list|
         - next if list.cards.empty?
         / Insert section banner image
-        - if list.name == "Awards"
-          img id="awards" src="http://www.interpore.org/images/newsletter/title/interpore_awards.jpg" alt="interpore awards" height="88" style="padding:0;margin:0;border:0px;text-decoration:none;"
-        - if list.name == "Community"
+        - if list.name == "Interpore Awards"
+          img id="interpore_awards" src="http://www.interpore.org/images/newsletter/title/interpore_awards.jpg" alt="interpore awards" height="88" style="padding:0;margin:0;border:0px;text-decoration:none;"
+        - if list.name == "Community News"
           img id="community_news" src="http://www.interpore.org/images/newsletter/title/community_news.jpg" height="88" alt="community news" style="padding:0;margin:0;border:0px;text-decoration:none;"
-        - if list.name == "Positions"
-          img id="positions" src="http://www.interpore.org/images/newsletter/title/research_positions.jpg" height="88" alt="research positions" style="padding:0;margin:0;border:0px;text-decoration:none;"
+        - if list.name == "Research Positions"
+          img id="research_positions" src="http://www.interpore.org/images/newsletter/title/research_positions.jpg" height="88" alt="research positions" style="padding:0;margin:0;border:0px;text-decoration:none;"
 
         / Iterate cards
         - list.cards.each_with_index do |card, index|
@@ -49,7 +49,7 @@ div class="container"
 
       / Footer
       div class="imprint"
-        h4 Imprint
+        h4 id="imprint" Imprint
         div== meta.imprint
         div class="row-fluid"
           div class="span12"
