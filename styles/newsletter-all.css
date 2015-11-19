@@ -271,9 +271,9 @@ img {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
   display: inline-block;
   max-width: 100%;
   height: auto;
@@ -1636,16 +1636,18 @@ address {
 body {
   background-color: #dcf4ff;
   font-family: Arial, Verdana;
+  font-style: normal;
+  font-variant: normal;
 }
 
 .container {
-  width: 582px;
+  width: 585px;
   font-size: 12px;
   padding: 0;
 }
 
 .row {
-  width: 582px;
+  width: 585px;
 }
 
 .col-xs-12 {
@@ -1692,6 +1694,10 @@ body {
   margin-bottom: 0.25em;
 }
 
+.newsletter-toc a {
+  color: black;
+}
+
 .imprint {
   text-align: center;
 }
@@ -1707,7 +1713,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 18px;
   margin-top: 0;
 }
 
@@ -1724,6 +1730,7 @@ p {
   padding: 0;
   margin: 0;
   margin-bottom: 8px;
+  color: black;
 }
 
 ul {
@@ -1732,6 +1739,7 @@ ul {
 }
 
 #readonline, #unsubscribe {
+  font-size: 10px;
   text-align: center;
   line-height: normal;
   background-color: #dcf4ff;

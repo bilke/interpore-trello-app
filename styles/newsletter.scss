@@ -1,12 +1,15 @@
 $article-margin: 20px;
-$container-width: 582px;
+$container-width: 585px;
 $text-font-size: 12px;
 $headline-color: #365F91;
 $background-color: #dcf4ff;
+$text-color: black;
 
 body {
   background-color: $background-color;
   font-family: Arial, Verdana;
+  font-style: normal;
+  font-variant: normal;
 }
 
 .container {
@@ -53,6 +56,8 @@ body {
     line-height: normal;
     margin-bottom: 0.25em;
   }
+
+  a { color: $text-color; }
 }
 
 .imprint {
@@ -67,7 +72,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: $text-font-size + 4px;
-  line-height: $text-font-size + 12px;
+  line-height: $text-font-size + 6px;
   margin-top: 0;
 }
 
@@ -84,6 +89,7 @@ p {
   padding: 0;
   margin: 0;
   margin-bottom: 8px;
+  color: $text-color;
 }
 
 ul {
@@ -92,6 +98,7 @@ ul {
 }
 
 #readonline, #unsubscribe {
+  font-size: 10px;
   text-align: center;
   line-height: normal;
   background-color: $background-color;
