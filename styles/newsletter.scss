@@ -1,4 +1,5 @@
 $article-margin: 20px;
+$banner-margin-bottom: 30px;
 $container-width: 585px;
 $text-font-size: 12px;
 $headline-color: #365F91;
@@ -72,7 +73,7 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: $text-font-size + 4px;
-  line-height: $text-font-size + 6px;
+  line-height: $text-font-size + 4px;
   margin-top: 0;
 }
 
@@ -103,4 +104,8 @@ ul {
   line-height: normal;
   background-color: $background-color;
   p { margin-bottom: 0; }
+}
+
+img #interpore_awards, #research_positions, #community_news {
+  margin-bottom: $banner-margin-bottom;
 }
