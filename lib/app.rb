@@ -33,7 +33,7 @@ get '/generate-card' do
   card = Trello::Card.find(card_id)
   if card
     post = Post.new(card)
-    slim :entry-web, locals: { :post => post }
+    slim :entry_web, locals: { :post => post }
   end
 end
 
@@ -42,6 +42,6 @@ get '/generate-card-html' do
   card = Trello::Card.find(card_id)
   if card
     post = Post.new(card)
-    slim :entry-web, locals: { :post => post }, :content_type => :txt
+    slim :entry_web, locals: { :post => post }, :content_type => :txt
   end
 end
