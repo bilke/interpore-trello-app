@@ -1,5 +1,5 @@
 # A sample Gemfile
-ruby '2.0.0'
+ruby "2.2.4"
 source "https://rubygems.org"
 
 gem "ruby-trello"
