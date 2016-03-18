@@ -1,4 +1,5 @@
 div class="article"
   /= Maruku.new("# #{post.title}").to_html
-  h1 id="#{post.title.downcase.gsub(/[^a-z0-9\s]/i, '').tr(' ', '_')}"== post.title
+  - if post.title != "Positions"
+    h1 id="#{post.title.downcase.gsub(/[^a-z0-9\s]/i, '').tr(' ', '_')}"== post.title
   == post.body

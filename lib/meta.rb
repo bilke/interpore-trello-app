@@ -24,7 +24,7 @@ class Meta
 
   def publish_date_string
     date = Date.parse(published_at)
-    date.strftime("#{date.day.ordinalize} %B %Y")
+    date.strftime("%e %B %Y")
   end
 
   private
