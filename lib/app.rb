@@ -46,6 +46,23 @@ get '/generate-card-html' do
   end
 end
 
+get '/generate-flash-html' do
+  card_id = params['card-id']
+  card = Trello::Card.find(card_id)
+  if card
+    board = Trello::Board.all.find { |b| b.name == "Newsletter - Template" }
+
+    if board.nil?
+      abort "Unable to find template board!"
+    end
+
+    lists = board.lists
+    meta = Meta.new lists.shift
+    post = Post.new(card)
+    slim :flash, locals: { :post => post, :meta => meta }, :content_type => :txt
+  end
+end
+
 get '/generate-multiple-issues-preview' do
   appendedHTML = ''
   list = params['issue-list']
