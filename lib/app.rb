@@ -45,3 +45,17 @@ get '/generate-card-html' do
     slim :entry_web, locals: { :post => post }, :content_type => :txt
   end
 end
+
+get '/generate-multiple-issues-preview' do
+  appendedHTML = ''
+  list = params['issue-list']
+  issueArray = list.split(' ')
+  issueArray.each do |issue|
+    importer = Importer.new(File.dirname(__FILE__), issue)
+    importer.import
+    html = Slim::Template.new('templates/newsletter_partial.slim').render(importer)
+    appendedHTML << html
+  end
+  # body = appendedHTML
+  slim :basic, locals: { :body => appendedHTML }
+end

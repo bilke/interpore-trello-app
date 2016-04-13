@@ -16,14 +16,29 @@ html
       input type="text" name="card-id" value="id"
       input type="submit" value="Preview"
 
+    form action="/generate-flash"
+      span Flash:
+      input type="submit" value="Preview"
+
     h2 Generate HTML
 
     form action="/generate-html"
       span Issue:
       input type="text" name="issue" value="yyyy-n"
-      input type="submit" value="Generate HTML"
+      input type="submit" value="Generate Issue HTML"
 
     form action="/generate-card-html"
       span Card:
       input type="text" name="card-id" value="id"
-      input type="submit" value="Generate HTML"
+      input type="submit" value="Generate Card HTML"
+
+    /form action="/generate-flash-html"
+    /  span Flash:
+    /  input type="submit" value="Generate Flash"
+
+    h2 Advanced
+
+    form action="/generate-multiple-issues-preview"
+      span List of Issues (space separated):
+      input type="text" name="issue-list" value="yyyy-n yyyy-n"
+      input type="submit" value="Generate Multiple Issue Preview"

@@ -38,6 +38,13 @@ For local environment setup use `.env`-file:
 ```
 trello_developer_public_key=[REDACTED]
 trello_member_token=[REDACTED]
+PORT=808
+```
+
+```
+rbenv rehash
+bil
+heroku local
 ```
 
 ## Docs
